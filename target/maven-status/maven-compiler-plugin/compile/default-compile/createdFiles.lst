@@ -1,0 +1,6 @@
+nz/co/camel/servlet/proxy/route/ProxyRoute.class
+nz/co/camel/servlet/proxy/ApplicationConfiguration.class
+nz/co/camel/servlet/proxy/ds/MyManagedBean.class
+nz/co/camel/servlet/proxy/config/CamelSpringConfig.class
+nz/co/camel/servlet/proxy/ProxyWebInitializer.class
+nz/co/camel/servlet/proxy/ProxyWebInitializer$ProxyWebListener.class
