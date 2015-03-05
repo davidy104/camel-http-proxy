@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import nz.co.camel.servlet.proxy.route.ProxyRoute;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.ManagementStatisticsLevel;
 import org.apache.camel.ThreadPoolRejectedPolicy;
 import org.apache.camel.management.DefaultManagementNamingStrategy;
 import org.apache.camel.spi.ThreadPoolProfile;
@@ -36,9 +37,12 @@ public class CamelSpringConfig {
 		final DefaultManagementNamingStrategy naming = (DefaultManagementNamingStrategy) camelContext.getManagementStrategy().getManagementNamingStrategy();
 		naming.setHostName("localhost");
 		naming.setDomainName("org.apache.camel");
+		camelContext.getManagementStrategy().setStatisticsLevel(ManagementStatisticsLevel.All);
+		
+//		camelContext.setStreamCaching(true);
+//		camelContext.setTracing(true);
 
-		camelContext.getExecutorServiceManager().registerThreadPoolProfile(
-				custThreadPoolProfile());
+		camelContext.getExecutorServiceManager().registerThreadPoolProfile(custThreadPoolProfile());
 		camelContext.addRoutes(new ProxyRoute());
 		return camelContext;
 	}
